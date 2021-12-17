@@ -21,6 +21,10 @@ vscode:
     - svelte.svelte-vscode
     - prisma.prisma
 
+    - alphabotsec.vscode-eclipse-keybindings
+
+    - esbenp.prettier-vscode
+
 github:
   prebuilds:
     master: true

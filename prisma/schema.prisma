@@ -31,6 +31,7 @@ model Restaurant {
   name String
   location String
   rating Float?
+  image String?
   menu MenuItem[]
 
   @@index(fields: [name, location], name: "restaurant_index")

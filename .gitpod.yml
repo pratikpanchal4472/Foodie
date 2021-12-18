@@ -7,6 +7,9 @@ tasks:
       npm run dev
     env:
       DATABASE_URL: postgres://gitpod@localhost/foodie
+  - command: npx prisma studio
+    env:
+      DATABASE_URL: postgres://gitpod@localhost/foodie
 
 ports:
   - port: 3000
@@ -20,9 +23,7 @@ vscode:
   extensions:
     - svelte.svelte-vscode
     - prisma.prisma
-
     - alphabotsec.vscode-eclipse-keybindings
-
     - esbenp.prettier-vscode
 
 github:

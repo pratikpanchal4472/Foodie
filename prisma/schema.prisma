@@ -22,14 +22,14 @@ model UserCred {
   id Int @id @default(autoincrement())
   user User? @relation(fields: [userId], references: [id])
   userId  Int?
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime
 }
 
 model Restaurant {
   id Int @id @default(autoincrement())
   name String
   location String
-  rating Decimal?
+  rating Float?
   menu MenuItem[]
 
   @@index(fields: [name, location], name: "restaurant_index")
@@ -39,64 +39,33 @@ model MenuItem {
   id Int @id @default(autoincrement())
   name String
   category String
-  unitPrice Decimal
+  unitPrice Float
   restaurant Restaurant @relation(fields: [restaurantId], references: [id])
   restaurantId Int
-
   orderItems OrderItem[]
 
   @@index(fields: [name, category], name: "menu_item_index")
   @@unique([name, category, restaurantId])
 }
 
-model DeliveryPerson {
+// Delivery Person Table
+model Valet {
   id Int @id @default(autoincrement())
   name String
   contactNo String @unique
-  averageRating Decimal?
+  averageRating Float?
   orders Order[]
 }
 
+// Order Item table
 model OrderItem {
   id Int @id @default(autoincrement())
   quantity Int
-  price Decimal
+  price Float
   menuItem MenuItem @relation(fields: [menuId], references: [id])
   menuId Int
   order Order @relation(fields: [orderId], references: [id])
   orderId Int
-}
-
-model Order {
-  id Int @id @default(autoincrement())
-  user User?  @relation(fields: [userId], references: [id])
-  userId Int?
-  status OrderStatus @default(CREATED)
-  createdAt DateTime @default(now())
-  serviceCharge Decimal
-  gst Decimal
-  total Decimal
-  discountApplied Decimal
-  deliveredAt DateTime?
-  deliverPerson DeliveryPerson? @relation(fields: [deliveryPersonId], references: [id])
-  deliveryPersonId Int?
-  orderItem OrderItem[]
-  payment Payment? @relation(fields: [paymentId], references: [id])
-  paymentId Int?
-}
-
-enum OrderStatus {
-  CREATED
-  PENDING
-  DELIVERED
-  CANCELLED
-}
-
-model Payment {
-  id Int @id @default(autoincrement())
-  transactionId String @default(cuid())
-  order Order
-  type PaymentType @default(COD)
 }
 
 enum PaymentType {
@@ -106,4 +75,35 @@ enum PaymentType {
   ONLINE
   DEBITCARD
   CREDITCARD
+}
+
+model Payment {
+  id String @id @default(cuid())
+  type PaymentType @default(COD)
+  order Order?
+}
+
+enum OrderStatus {
+  CREATED
+  PENDING
+  DELIVERED
+  CANCELLED
+}
+
+model Order {
+  id Int @id @default(autoincrement())
+  user User?  @relation(fields: [userId], references: [id])
+  userId Int?
+  status OrderStatus @default(CREATED)
+  createdAt DateTime @default(now())
+  serviceCharge Float
+  gst Float
+  total Float
+  discountApplied Float
+  deliveredAt DateTime?
+  valet Valet? @relation(fields: [valetId], references: [id])
+  valetId Int?
+  orderItem OrderItem[]
+  payment Payment? @relation(fields: [paymentId], references: [id])
+  paymentId String?
 }

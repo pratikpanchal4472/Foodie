@@ -22,6 +22,7 @@ model UserCred {
   id Int @id @default(autoincrement())
   user User? @relation(fields: [userId], references: [id])
   userId  Int?
+  password String
   updatedAt DateTime
 }
 
@@ -103,7 +104,7 @@ model Order {
   deliveredAt DateTime?
   valet Valet? @relation(fields: [valetId], references: [id])
   valetId Int?
-  orderItem OrderItem[]
+  orderItems OrderItem[]
   payment Payment? @relation(fields: [paymentId], references: [id])
   paymentId String?
 }

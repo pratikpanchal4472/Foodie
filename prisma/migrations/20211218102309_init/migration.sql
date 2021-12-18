@@ -19,6 +19,7 @@ CREATE TABLE "User" (
 CREATE TABLE "UserCred" (
     "id" SERIAL NOT NULL,
     "userId" INTEGER,
+    "password" TEXT NOT NULL,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "UserCred_pkey" PRIMARY KEY ("id")

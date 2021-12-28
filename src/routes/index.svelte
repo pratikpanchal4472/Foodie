@@ -1,5 +1,6 @@
 <script context="module" lang="ts">
   import type { Load } from "@sveltejs/kit";
+  import RestaurantCard from "$lib/components/restaurant.svelte";
 
   export const load: Load = async ({ fetch }) => {
     const res = await fetch("/restaurants.json");
@@ -25,18 +26,6 @@
 
 <div class="row row-cols-1 row-cols-md-4 g-4">
   {#each restaurants as restaurant}
-    <div class="col">
-      <div class="card">
-        <img
-          src={restaurant.image}
-          class="card-img-top"
-          alt={restaurant.name}
-          height="300px"
-        />
-        <div class="card-body">
-          <h5 class="card-title">{restaurant.name}</h5>
-        </div>
-      </div>
-    </div>
+    <RestaurantCard {restaurant} />
   {/each}
 </div>

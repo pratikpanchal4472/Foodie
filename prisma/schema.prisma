@@ -14,7 +14,7 @@ model User {
   createdAt  DateTime @default(now())
   email      String   @unique
   name       String?
-  creds      UserCred
+  creds      UserCred?
   orders Order[]
 }
 

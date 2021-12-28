@@ -3,56 +3,304 @@
     "name": "London Yards Pizza",
     "location": "Savvy Swaraj sports club",
     "rating": 4.5,
-    "image":
-      "https://b.zmtcdn.com/data/reviews_photos/488/d960151fbeb978b5f0de7a1d18af6488_1630982555.jpg?output-format=webp"
+    "image": "https://b.zmtcdn.com/data/reviews_photos/488/d960151fbeb978b5f0de7a1d18af6488_1630982555.jpg?output-format=webp",
+    "menu": [
+      {
+        "name": "Country Feast",
+        "category": "Pizza",
+        "unitPrice": 660
+      },
+      {
+        "name": "Classic Pomodoro",
+        "category": "Pizza",
+        "unitPrice": 490
+      },
+      {
+        "name": "Cheese & Corn",
+        "category": "Pizza",
+        "unitPrice": 220
+      },
+      {
+        "name": "Primavera",
+        "category": "Pizza",
+        "unitPrice": 460
+      },
+      {
+        "name": "Mac & Cheese",
+        "category": "Pizza",
+        "unitPrice": 740
+      },
+      {
+        "name": "Mexicano",
+        "category": "Pizza",
+        "unitPrice": 910
+      },
+      {
+        "name": "Paneer Tikka",
+        "category": "Pizza",
+        "unitPrice": 560
+      },
+      {
+        "name": "Hawaiin",
+        "category": "Pizza",
+        "unitPrice": 770
+      }
+    ]
   },
   {
     "name": "Shivam Snakcs",
     "location": "Vande Mataram Crosswind",
     "rating": 4.3,
-    "image":
-      "https://b.zmtcdn.com/data/pictures/6/18590056/f6b57e756284e7a308fbc990ef371744.jpg"
+    "image": "https://b.zmtcdn.com/data/pictures/6/18590056/f6b57e756284e7a308fbc990ef371744.jpg",
+    "menu": [
+      {
+        "name": "Idli",
+        "category": "South Indian",
+        "unitPrice": 50
+      },
+      {
+        "name": "Sada Dhosa",
+        "category": "South Indian",
+        "unitPrice": 110
+      },
+      {
+        "name": "Sada Dhosa",
+        "category": "South Indian",
+        "unitPrice": 110
+      },
+      {
+        "name": "Masala Dhosa",
+        "category": "South Indian",
+        "unitPrice": 120
+      },
+      {
+        "name": "Mysore Sada Dhosa",
+        "category": "South Indian",
+        "unitPrice": 120
+      },
+      {
+        "name": "Mysore Masala Dhosa",
+        "category": "South Indian",
+        "unitPrice": 140
+      },
+      {
+        "name": "Rava Sada Dhosa",
+        "category": "South Indian",
+        "unitPrice": 140
+      },
+      {
+        "name": "Rava Masala Dhosa",
+        "category": "South Indian",
+        "unitPrice": 160
+      },
+      {
+        "name": "Paneer Tikka Masala",
+        "category": "Main Course",
+        "unitPrice": 180
+      },
+      {
+        "name": "Paneer Tikka Masala",
+        "category": "Main Course",
+        "unitPrice": 180
+      },
+      {
+        "name": "Paneer Butter Masala",
+        "category": "Main Course",
+        "unitPrice": 200
+      },
+      {
+        "name": "Paneer Kadai",
+        "category": "Main Course",
+        "unitPrice": 220
+      }
+    ]
   },
   {
     "name": "Jay Bhavani",
     "location": "Vande Mataram Icon, Gota",
     "rating": 3.2,
-    "image":
-      "https://b.zmtcdn.com/data/pictures/7/110227/c4d78b11df84421ba9644674356adc63.jpg?output-format=webp"
+    "image": "https://b.zmtcdn.com/data/pictures/7/110227/c4d78b11df84421ba9644674356adc63.jpg?output-format=webp",
+    "menu": [
+      {
+        "name": "Bhel",
+        "category": "Snacks",
+        "unitPrice": 70
+      },
+      {
+        "name": "Sevpuri",
+        "category": "Snacks",
+        "unitPrice": 70
+      },
+      {
+        "name": "Vadapav",
+        "category": "Snacks",
+        "unitPrice": 35
+      },
+      {
+        "name": "Bombay Vadapav",
+        "category": "Snacks",
+        "unitPrice": 25
+      },
+      {
+        "name": "Cheese Vadapav",
+        "category": "Snacks",
+        "unitPrice": 45
+      },
+      {
+        "name": "Dabeli",
+        "category": "Snacks",
+        "unitPrice": 35
+      }
+    ]
   },
   {
     "name": "La Pino'z Pizza",
     "location": "Shukan Residency",
     "rating": 5,
-    "image":
-      "https://b.zmtcdn.com/data/pictures/chains/9/18438909/51fbbb10b71a1999349f8801cad928e4.png?fit=around|771.75:416.25&crop=771.75:416.25;*,*"
+    "image": "https://b.zmtcdn.com/data/pictures/chains/9/18438909/51fbbb10b71a1999349f8801cad928e4.png?fit=around|771.75:416.25&crop=771.75:416.25;*,*",
+    "menu": [
+      {
+        "name": "Margherita",
+        "category": "Pizza",
+        "unitPrice": 220
+      },
+      {
+        "name": "Garder Delight",
+        "category": "Pizza",
+        "unitPrice": 595
+      },
+      {
+        "name": "Lovers Bite",
+        "category": "Pizza",
+        "unitPrice": 395
+      },
+      {
+        "name": "Seven Cheese",
+        "category": "Pizza",
+        "unitPrice": 745
+      },
+      {
+        "name": "Burn To Hell",
+        "category": "Pizza",
+        "unitPrice": 475
+      },
+      {
+        "name": "Mexican Pery Pery",
+        "category": "Pizza",
+        "unitPrice": 775
+      }
+    ]
   },
   {
     "name": "Subway",
     "location": "Royal Arcade",
     "rating": 5,
-    "image":
-      "https://b.zmtcdn.com/data/pictures/chains/1/110381/8fc52f04235d41e197909ce759271bad.jpeg"
+    "image": "https://b.zmtcdn.com/data/pictures/chains/1/110381/8fc52f04235d41e197909ce759271bad.jpeg",
+    "menu": [
+      {
+        "name": "Veg Aloo Petty",
+        "category": "Sandwiches",
+        "unitPrice": 190
+      },
+      {
+        "name": "Hara Bhara Kebab",
+        "category": "Sandwiches",
+        "unitPrice": 205
+      },
+      {
+        "name": "Veg Shammi",
+        "category": "Sandwiches",
+        "unitPrice": 238
+      },
+      {
+        "name": "Tandoori Tofu",
+        "category": "Sandwiches",
+        "unitPrice": 238
+      }
+    ]
   },
   {
     "name": "Harmony Restro Cafe",
     "location": "Navarangpura",
     "rating": 4.3,
-    "image":
-      "https://b.zmtcdn.com/data/pictures/chains/2/19372902/bec7f3a0fd951fbc405fa29208d342a7_o2_featured_v2.jpg?output-format=webp"
+    "image": "https://b.zmtcdn.com/data/pictures/chains/2/19372902/bec7f3a0fd951fbc405fa29208d342a7_o2_featured_v2.jpg?output-format=webp",
+    "menu": [
+      {
+        "name": "Caffe Latte",
+        "category": "Beverage",
+        "unitPrice": 250
+      },
+      {
+        "name": "Veg Jumbo Burger",
+        "category": "Snacks",
+        "unitPrice": 220
+      },
+      {
+        "name": "Choco Brew Coffee",
+        "category": "Beverage",
+        "unitPrice": 239
+      },
+      {
+        "name": "Club Sandwich",
+        "category": "Snacks",
+        "unitPrice": 125
+      }
+    ]
   },
   {
     "name": "Hocco Eatery",
     "location": "Shukan Platinum",
     "rating": 4.5,
-    "image":
-      "https://b.zmtcdn.com/data/pictures/chains/5/110155/811c01a5430d50d3260f77917da99e12_o2_featured_v2.jpg?output-format=webp"
+    "image": "https://b.zmtcdn.com/data/pictures/chains/5/110155/811c01a5430d50d3260f77917da99e12_o2_featured_v2.jpg?output-format=webp",
+    "menu": [
+      {
+        "name": "Chana Puri",
+        "category": "Main Course",
+        "unitPrice": 120
+      },
+      {
+        "name": "Paneer Rolls",
+        "category": "Main Course",
+        "unitPrice": 80
+      },
+      {
+        "name": "Chhole Kulcha",
+        "category": "Main Course",
+        "unitPrice": 135
+      }
+    ]
   },
   {
     "name": "Fassos",
     "location": "Vastrapur Lake",
     "rating": 3.2,
-    "image":
-      "https://b.zmtcdn.com/data/pictures/chains/0/113180/df74e4a9f67e962c622ebe195601d74b_o2_featured_v2.jpg"
+    "image": "https://b.zmtcdn.com/data/pictures/chains/0/113180/df74e4a9f67e962c622ebe195601d74b_o2_featured_v2.jpg",
+    "menu": [
+      {
+        "name": "Veg Wrap",
+        "category": "Snacks",
+        "unitPrice": 85
+      },
+      {
+        "name": "Aloo Wrap",
+        "category": "Snacks",
+        "unitPrice": 95
+      },
+      {
+        "name": "Kebab Wrap",
+        "category": "Snacks",
+        "unitPrice": 115
+      },
+      {
+        "name": "Mayyo Paneer Wrap",
+        "category": "Snacks",
+        "unitPrice": 125
+      },
+      {
+        "name": "Aloo Cheese Wrap",
+        "category": "Snacks",
+        "unitPrice": 120
+      }
+    ]
   }
 ]

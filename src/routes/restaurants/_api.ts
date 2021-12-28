@@ -9,7 +9,15 @@ export const api = async (request: Request, data?: Record<string, unknown>) => {
 
   switch (request.method.toUpperCase()) {
     case "GET":
-      body = await prisma.restaurant.findMany();
+      if (request.query.has("rid")) {
+        body = await prisma.restaurant.findUnique({
+          where: {
+            id: Number(request.query.get("rid")),
+          },
+        });
+      } else {
+        body = await prisma.restaurant.findMany();
+      }
       status = 200;
       break;
     case "POST":

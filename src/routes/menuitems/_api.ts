@@ -11,8 +11,8 @@ export const api = async (request: Request, data?: Record<string, unknown>) => {
     case "GET":
       body = await prisma.menuItem.findMany({
         where: {
-          restaurantId: Number(request.query.get('rId'))
-        }
+          restaurantId: Number(request.query.get("rid")),
+        },
       });
       status = 200;
       break;

@@ -47,7 +47,6 @@ model MenuItem {
   orderItems OrderItem[]
 
   @@index(fields: [name, category], name: "menu_item_index")
-  @@unique([name, category, restaurantId])
 }
 
 // Delivery Person Table

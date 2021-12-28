@@ -9,9 +9,11 @@ let restaurants = JSON.parse(
 );
 
 async function main() {
-  await prisma.restaurant.createMany({
-    data: restaurants,
-  });
+  for (const r of restaurants) {
+    const rst = await prisma.restaurant.create({
+      data: r,
+    });
+  }
 }
 
 main()
@@ -19,6 +21,6 @@ main()
     console.log(e);
     process.exit(1);
   })
-  .finally(() => {
-    prisma.$disconnect();
+  .finally(async () => {
+    await prisma.$disconnect();
   });

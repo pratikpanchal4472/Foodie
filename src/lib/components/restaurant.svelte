@@ -10,10 +10,25 @@
       alt={restaurant?.name}
       height="300px"
     />
-    <div class="card-body">
-      <a class="text-decoration-none" href={`/restaurant/${restaurant.id}`}>
-        <h5 class="card-title">{restaurant?.name}</h5>
-      </a>
+    <div class="card-body p-2">
+      <h5 class="card-title mb-0">
+        <a class="text-decoration-none" href={`/restaurant/${restaurant.id}`}
+          >{restaurant?.name}</a
+        >
+      </h5>
+      <p class="card-text text-muted mb-1">
+        {restaurant?.location}
+      </p>
+      <p class="card-text">
+        Ratings:
+        {#each [1, 2, 3, 4, 5] as rating}
+          <i
+            class="bi mr-1 inline-block text-warning"
+            class:bi-star={restaurant?.rating < rating}
+            class:bi-star-fill={restaurant?.rating >= rating}
+          />
+        {/each}
+      </p>
     </div>
   </div>
 </div>

@@ -1,72 +1,69 @@
 // Learn more about this file in the docs: https://pris.ly/d/prisma-schema
 datasource db {
   provider = "postgresql"
-  url = env("DATABASE_URL")
+  url      = env("DATABASE_URL")
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
   binaryTargets = ["native"]
 }
 
 model User {
-  id         Int      @id @default(autoincrement())
-  createdAt  DateTime @default(now())
-  email      String   @unique
-  name       String?
-  creds      UserCred?
-  orders Order[]
-}
-
-model UserCred {
-  id Int @id @default(autoincrement())
-  user User? @relation(fields: [userId], references: [id])
-  userId  Int?
-  password String
-  updatedAt DateTime
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  email     String   @unique
+  name      String?
+  orders    Order[]
 }
 
 model Restaurant {
-  id Int @id @default(autoincrement())
-  name String
+  id       Int        @id @default(autoincrement())
+  name     String
   location String
-  rating Float?
-  image String?
-  menu MenuItem[]
+  rating   Float?
+  image    String?
+  menu     MenuItem[]
 
   @@index(fields: [name, location], name: "restaurant_index")
 }
 
 model MenuItem {
-  id Int @id @default(autoincrement())
-  name String
-  category String
-  unitPrice Float
-  restaurant Restaurant @relation(fields: [restaurantId], references: [id])
+  id           Int         @id @default(autoincrement())
+  name         String
+  category     String
+  unitPrice    Float
+  restaurant   Restaurant  @relation(fields: [restaurantId], references: [id])
   restaurantId Int
-  orderItems OrderItem[]
+  orderItems   OrderItem[]
 
   @@index(fields: [name, category], name: "menu_item_index")
 }
 
 // Delivery Person Table
 model Valet {
-  id Int @id @default(autoincrement())
-  name String
-  contactNo String @unique
+  id            Int     @id @default(autoincrement())
+  name          String
+  contactNo     String  @unique
   averageRating Float?
-  orders Order[]
+  orders        Order[]
+}
+
+enum OrderItemStatus {
+  IN_PROGRESS
+  PLACED
 }
 
 // Order Item table
 model OrderItem {
-  id Int @id @default(autoincrement())
+  id       Int             @id @default(autoincrement())
   quantity Int
-  price Float
-  menuItem MenuItem @relation(fields: [menuId], references: [id])
-  menuId Int
-  order Order @relation(fields: [orderId], references: [id])
-  orderId Int
+  price    Float
+  menuItem MenuItem        @relation(fields: [menuId], references: [id])
+  menuId   Int
+  order    Order           @relation(fields: [orderId], references: [id])
+  orderId  Int
+  state    OrderItemStatus @default(IN_PROGRESS)
 }
 
 enum PaymentType {
@@ -79,8 +76,8 @@ enum PaymentType {
 }
 
 model Payment {
-  id String @id @default(cuid())
-  type PaymentType @default(COD)
+  id    String      @id @default(cuid())
+  type  PaymentType @default(COD)
   order Order?
 }
 
@@ -92,19 +89,19 @@ enum OrderStatus {
 }
 
 model Order {
-  id Int @id @default(autoincrement())
-  user User?  @relation(fields: [userId], references: [id])
-  userId Int?
-  status OrderStatus @default(CREATED)
-  createdAt DateTime @default(now())
-  serviceCharge Float
-  gst Float
-  total Float
+  id              Int         @id @default(autoincrement())
+  user            User?       @relation(fields: [userId], references: [id])
+  userId          Int?
+  status          OrderStatus @default(CREATED)
+  createdAt       DateTime    @default(now())
+  serviceCharge   Float
+  gst             Float
+  total           Float
   discountApplied Float
-  deliveredAt DateTime?
-  valet Valet? @relation(fields: [valetId], references: [id])
-  valetId Int?
-  orderItems OrderItem[]
-  payment Payment? @relation(fields: [paymentId], references: [id])
-  paymentId String?
+  deliveredAt     DateTime?
+  valet           Valet?      @relation(fields: [valetId], references: [id])
+  valetId         Int?
+  orderItems      OrderItem[]
+  payment         Payment?    @relation(fields: [paymentId], references: [id])
+  paymentId       String?     @unique
 }

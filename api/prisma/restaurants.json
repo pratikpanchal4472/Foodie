@@ -9,42 +9,50 @@
         {
           "name": "Country Feast",
           "category": "Pizza",
-          "unitPrice": 660
+          "unitPrice": 660,
+          "image": "https://b.zmtcdn.com/data/dish_photos/828/94eb9018fa0456c94ddaf75f604be828.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Classic Pomodoro",
           "category": "Pizza",
-          "unitPrice": 490
+          "unitPrice": 490,
+          "image": "https://b.zmtcdn.com/data/dish_photos/faf/29654e2f5f258eb16a042662f6a7dfaf.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Cheese & Corn",
           "category": "Pizza",
-          "unitPrice": 220
+          "unitPrice": 220,
+          "image": "https://b.zmtcdn.com/data/dish_photos/0d5/bd3109f86f2318ec9410a44c0fb3b0d5.png?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Primavera",
           "category": "Pizza",
-          "unitPrice": 460
+          "unitPrice": 460,
+          "image": "https://b.zmtcdn.com/data/dish_photos/ff5/0ccb0be8e772175944a0664dd90c3ff5.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Mac & Cheese",
           "category": "Pizza",
-          "unitPrice": 740
+          "unitPrice": 740,
+          "image": "https://b.zmtcdn.com/data/dish_photos/608/b019808edb5e4eeae5b1fb97b847d608.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Mexicano",
           "category": "Pizza",
-          "unitPrice": 910
+          "unitPrice": 910,
+          "image": "https://b.zmtcdn.com/data/dish_photos/da9/6b24e51921f3b3d22ca6e5a361ab7da9.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Paneer Tikka",
           "category": "Pizza",
-          "unitPrice": 560
+          "unitPrice": 560,
+          "image": "https://b.zmtcdn.com/data/dish_photos/d96/30e88382e6e52d9378875efd94ce0d96.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Hawaiin",
           "category": "Pizza",
-          "unitPrice": 770
+          "unitPrice": 770,
+          "image": "https://b.zmtcdn.com/data/dish_photos/7f2/bf36fc7d95141a4281703722ada4e7f2.jpg?fit=around|130:130&crop=130:130;*,*"
         }
       ]
     }
@@ -59,62 +67,62 @@
         {
           "name": "Idli",
           "category": "South Indian",
-          "unitPrice": 50
+          "unitPrice": 50,
+          "image": "https://b.zmtcdn.com/data/dish_photos/0da/7417beaa4374140a38d8bd9f63a760da.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Sada Dhosa",
           "category": "South Indian",
-          "unitPrice": 110
-        },
-        {
-          "name": "Sada Dhosa",
-          "category": "South Indian",
-          "unitPrice": 110
+          "unitPrice": 110,
+          "image": "https://b.zmtcdn.com/data/dish_photos/507/7a90564e776aa88374aa90eb54be9507.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Masala Dhosa",
           "category": "South Indian",
-          "unitPrice": 120
+          "unitPrice": 120,
+          "image": "https://b.zmtcdn.com/data/dish_photos/507/7a90564e776aa88374aa90eb54be9507.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Mysore Sada Dhosa",
           "category": "South Indian",
-          "unitPrice": 120
+          "unitPrice": 120,
+          "image": "https://b.zmtcdn.com/data/dish_photos/67c/775865ab3a06ad7344589974da64b67c.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Mysore Masala Dhosa",
           "category": "South Indian",
-          "unitPrice": 140
+          "unitPrice": 140,
+          "image": "https://b.zmtcdn.com/data/dish_photos/67c/775865ab3a06ad7344589974da64b67c.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Rava Sada Dhosa",
           "category": "South Indian",
-          "unitPrice": 140
+          "unitPrice": 140,
+          "image": "https://b.zmtcdn.com/data/dish_photos/1d4/62f55fe817e088e9f424891604aaa1d4.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Rava Masala Dhosa",
           "category": "South Indian",
-          "unitPrice": 160
+          "unitPrice": 160,
+          "image": "https://b.zmtcdn.com/data/dish_photos/1d4/62f55fe817e088e9f424891604aaa1d4.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Paneer Tikka Masala",
           "category": "Main Course",
-          "unitPrice": 180
-        },
-        {
-          "name": "Paneer Tikka Masala",
-          "category": "Main Course",
-          "unitPrice": 180
+          "unitPrice": 180,
+          "image": "https://b.zmtcdn.com/data/dish_photos/984/60ecd42a6840a2a2f1b81bfce3f5b984.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Paneer Butter Masala",
           "category": "Main Course",
-          "unitPrice": 200
+          "unitPrice": 200,
+          "image": "https://b.zmtcdn.com/data/dish_photos/922/596c1529a43e40d91d22f2bce5cf5922.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Paneer Kadai",
           "category": "Main Course",
-          "unitPrice": 220
+          "unitPrice": 220,
+          "image": "https://b.zmtcdn.com/data/dish_photos/b25/51dc41ec1514e6226d73ade317dc9b25.jpg?fit=around|130:130&crop=130:130;*,*"
         }
       ]
     }
@@ -129,32 +137,38 @@
         {
           "name": "Bhel",
           "category": "Snacks",
-          "unitPrice": 70
+          "unitPrice": 70,
+          "image": "https://b.zmtcdn.com/data/dish_photos/571/b12ce23f27eaf8d4d50ec58e64679571.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Sevpuri",
           "category": "Snacks",
-          "unitPrice": 70
+          "unitPrice": 70,
+          "image": "https://b.zmtcdn.com/data/dish_photos/e8f/8bb02039e543aaf6c5e18c29a4fc2e8f.jpg"
         },
         {
           "name": "Vadapav",
           "category": "Snacks",
-          "unitPrice": 35
+          "unitPrice": 35,
+          "image": "https://b.zmtcdn.com/data/dish_photos/9d9/f04d4b933b494ea663525efef3c389d9.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Bombay Vadapav",
           "category": "Snacks",
-          "unitPrice": 25
+          "unitPrice": 25,
+          "image": "https://b.zmtcdn.com/data/dish_photos/9d9/f04d4b933b494ea663525efef3c389d9.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Cheese Vadapav",
           "category": "Snacks",
-          "unitPrice": 45
+          "unitPrice": 45,
+          "image": "https://b.zmtcdn.com/data/dish_photos/f98/a2d745563a48135a6276ab0eaa0f8f98.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Dabeli",
           "category": "Snacks",
-          "unitPrice": 35
+          "unitPrice": 35,
+          "image": "https://b.zmtcdn.com/data/dish_photos/de7/7f30e1b1477b1d8c51ad1e37288f1de7.jpg?fit=around|130:130&crop=130:130;*,*"
         }
       ]
     }
@@ -169,32 +183,38 @@
         {
           "name": "Margherita",
           "category": "Pizza",
-          "unitPrice": 220
+          "unitPrice": 220,
+          "image": "https://b.zmtcdn.com/data/dish_photos/cab/19c50a2e316229dd7d95d40594c7ecab.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
-          "name": "Garder Delight",
+          "name": "Garden Delight",
           "category": "Pizza",
-          "unitPrice": 595
+          "unitPrice": 595,
+          "image": "https://b.zmtcdn.com/data/dish_photos/7a9/41795cbf34f27ba45a1484b91ba6b7a9.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Lovers Bite",
           "category": "Pizza",
-          "unitPrice": 395
+          "unitPrice": 395,
+          "image": "https://b.zmtcdn.com/data/dish_photos/974/6a55ded8535c1052e8f2ec2ce1583974.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Seven Cheese",
           "category": "Pizza",
-          "unitPrice": 745
+          "unitPrice": 745,
+          "image": "https://b.zmtcdn.com/data/dish_photos/ef6/bad6ce25e7d36c07f29c53ce4104bef6.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Burn To Hell",
           "category": "Pizza",
-          "unitPrice": 475
+          "unitPrice": 475,
+          "image": "https://b.zmtcdn.com/data/dish_photos/771/70c7a5e30175f161077da6d73b344771.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Mexican Pery Pery",
           "category": "Pizza",
-          "unitPrice": 775
+          "unitPrice": 775,
+          "image": "https://b.zmtcdn.com/data/dish_photos/9b2/f387a40e2e1e4e1e78c3bc068cbe29b2.jpg?fit=around|130:130&crop=130:130;*,*"
         }
       ]
     }
@@ -209,22 +229,26 @@
         {
           "name": "Veg Aloo Petty",
           "category": "Sandwiches",
-          "unitPrice": 190
+          "unitPrice": 190,
+          "image": "https://b.zmtcdn.com/data/dish_photos/46b/6c025af4ccd18f2b296fc9f0bb57a46b.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Hara Bhara Kebab",
           "category": "Sandwiches",
-          "unitPrice": 205
+          "unitPrice": 205,
+          "image": "https://b.zmtcdn.com/data/dish_photos/cf2/fb0bd24cc19a8fb2bb2352a38d679cf2.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Veg Shammi",
           "category": "Sandwiches",
-          "unitPrice": 238
+          "unitPrice": 238,
+          "image": "https://b.zmtcdn.com/data/dish_photos/8fb/6f1dd7a64b76e9ef93ad2fbab68118fb.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Tandoori Tofu",
           "category": "Sandwiches",
-          "unitPrice": 238
+          "unitPrice": 238,
+          "image": "https://b.zmtcdn.com/data/dish_photos/861/b4a7fdf714c5f63a6a317ad7884b5861.jpg?fit=around|130:130&crop=130:130;*,*"
         }
       ]
     }
@@ -239,22 +263,26 @@
         {
           "name": "Caffe Latte",
           "category": "Beverage",
-          "unitPrice": 250
+          "unitPrice": 250,
+          "image": "https://b.zmtcdn.com/data/dish_photos/4c9/28fbd37ee6545db3931d497a2c6cd4c9.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Veg Jumbo Burger",
           "category": "Snacks",
-          "unitPrice": 220
+          "unitPrice": 220,
+          "image": "https://b.zmtcdn.com/data/dish_photos/cff/d8c75381058cbd9161fa0836a3bafcff.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Choco Brew Coffee",
           "category": "Beverage",
-          "unitPrice": 239
+          "unitPrice": 239,
+          "image": "https://b.zmtcdn.com/data/dish_photos/3cd/196b97da0c9f21fa27d1da7074b803cd.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Club Sandwich",
           "category": "Snacks",
-          "unitPrice": 125
+          "unitPrice": 125,
+          "image": "https://b.zmtcdn.com/data/dish_photos/c4b/fcdc6aff254082b35bf1675730ce5c4b.jpg?fit=around|130:130&crop=130:130;*,*"
         }
       ]
     }
@@ -269,17 +297,20 @@
         {
           "name": "Chana Puri",
           "category": "Main Course",
-          "unitPrice": 120
+          "unitPrice": 120,
+          "image": "https://b.zmtcdn.com/data/dish_photos/f51/27c270bc2e8d955c2cd01ad016eeff51.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Paneer Rolls",
           "category": "Main Course",
-          "unitPrice": 80
+          "unitPrice": 80,
+          "image": "https://b.zmtcdn.com/data/dish_photos/523/e636971e6c96cb673afdf99580b47523.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Chhole Kulcha",
           "category": "Main Course",
-          "unitPrice": 135
+          "unitPrice": 135,
+          "image": "https://b.zmtcdn.com/data/dish_photos/0e0/f398e5d84d6868fc379d6c14cea3a0e0.jpg?fit=around|130:130&crop=130:130;*,*"
         }
       ]
     }
@@ -294,27 +325,32 @@
         {
           "name": "Veg Wrap",
           "category": "Snacks",
-          "unitPrice": 85
+          "unitPrice": 85,
+          "image": "https://b.zmtcdn.com/data/dish_photos/53c/3e862cff2d2fec5081224ccb5799c53c.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Aloo Wrap",
           "category": "Snacks",
-          "unitPrice": 95
+          "unitPrice": 95,
+          "image": "https://b.zmtcdn.com/data/dish_photos/39e/33f580ce3f0a9859e753e8a2dd2f939e.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Kebab Wrap",
           "category": "Snacks",
-          "unitPrice": 115
+          "unitPrice": 115,
+          "image": "https://b.zmtcdn.com/data/dish_photos/c70/ea369fad8251b9014efd570c34e07c70.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Mayyo Paneer Wrap",
           "category": "Snacks",
-          "unitPrice": 125
+          "unitPrice": 125,
+          "image": "https://b.zmtcdn.com/data/dish_photos/57f/1f2bce0b4b9224121029f41e0029657f.jpg?fit=around|130:130&crop=130:130;*,*"
         },
         {
           "name": "Aloo Cheese Wrap",
           "category": "Snacks",
-          "unitPrice": 120
+          "unitPrice": 120,
+          "image": "https://b.zmtcdn.com/data/dish_photos/f0b/a840aebd9dbfb5fdcc59f36024ee9f0b.jpg?fit=around|130:130&crop=130:130;*,*"
         }
       ]
     }

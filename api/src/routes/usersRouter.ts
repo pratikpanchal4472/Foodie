@@ -1,51 +1,58 @@
-import { Prisma, PrismaClient } from '@prisma/client';
-import express, { Request, Response } from 'express';
+import { Prisma } from '@prisma/client';
+import { Request, Response, Router } from 'express';
+import UserService from '../services/user.service';
 
-const Router = express.Router();
-const prisma = new PrismaClient();
-
-class UserNotFoundError extends Error {
-    constructor() {
-        super('User not found!');
+class UserFetchExceptions extends Error {
+    constructor(message: string) {
+        super(message);
     }
 }
 
 export class UserRouter {
+    private _router: Router;
+    private service: UserService;
+
     constructor() {
-        Router.get('/:id', this.findById);
-        Router.post('/', this.save);
+        this.service = UserService.getInstance();
+        this._router = Router();
+        this._router.get('/:id', (req, res) => this.findById(req, res));
+        this._router.post('/', (req, res) => this.save(req, res));
     }
 
-    public static build(): UserRouter {
-        return new UserRouter();
+    router(): Router {
+        return this._router;
+    }
+
+    public static build(): Router {
+        return new UserRouter().router();
     }
 
     async save(req: Request, res: Response) {
         const user = req.body as Prisma.UserUncheckedCreateInput;
         let status = 200;
-        if (user.id) {
-            const { name, email } = user;
-            await prisma.user.update({
-                where: { id: user.id },
-                data: { name, email },
-            });
+        const { name, email, profileId, image } = user;
+        const existingUser = await this.service.findByEmail(email);
+
+        let updatedUser;
+        if (existingUser) {
+            updatedUser = await this.service.update(email,
+                { name, profileId: profileId || null, image: image || null });
         } else {
-            await prisma.user.create({ data: user });
+            updatedUser = await this.service.create(user);
             status = 201;
         }
-        res.status(status).json()
+        delete updatedUser.password;
+        res.status(status).json(updatedUser);
     }
 
     async findById(req: Request, res: Response) {
-        const id = Number(req.params.id);
+        const { id } = req.params;
 
         try {
-            const user = await prisma.user.findUnique({ where: { id } });
-
+            const user = await this.service.findById(+id);
             if (user === null) {
-                throw new UserNotFoundError();
+                throw new UserFetchExceptions('User not found!');
             }
-
             res.status(200).json(user);
         } catch (e) {
             res.status(400).json({
@@ -54,5 +61,4 @@ export class UserRouter {
         }
     }
 }
-UserRouter.build();
-export default Router;
+export default UserRouter.build();

@@ -1,37 +1,34 @@
-import { PrismaClient } from '@prisma/client';
-import express, { Request, Response } from 'express';
-
-const Router = express.Router();
-const prisma = new PrismaClient();
+import { Request, Response, Router } from 'express';
+import RestaturantService from '../services/restaurant.service';
 
 export class RestaurantRouter {
-    constructor() {
-        Router.get('/:id/menuitems', this.findMenuItems);
-        Router.get('/', this.findAll);
+    private _router: Router;
+    private service: RestaturantService;
 
+    constructor() {
+        this.service = RestaturantService.getInstance();
+        this._router = Router();
+        this._router.get('/:id', (req, res) => this.findById(req, res));
+        this._router.get('/', (req, res) => this.findAll(req, res));
     }
 
-    public static build(): RestaurantRouter {
-        return new RestaurantRouter();
+    router(): Router {
+        return this._router;
+    }
+
+    public static build(): Router {
+        return new RestaurantRouter().router();
     }
 
     async findAll(req: Request, res: Response) {
-        const restaurants = await prisma.restaurant.findMany();
-
+        const restaurants = await this.service.findAll();
         res.status(200).json(restaurants);
     }
 
-    async findMenuItems(req: Request, res: Response) {
+    async findById(req: Request, res: Response) {
         const { id } = req.params;
-
-        const menuItems = await prisma.menuItem.findMany({
-            where: {
-                restaurantId: Number(id),
-            },
-        });
-
-        res.status(200).json(menuItems);
+        const restaurant = await this.service.findById(+id);
+        res.status(200).json(restaurant);
     }
 }
-RestaurantRouter.build();
-export default Router;
+export default RestaurantRouter.build();

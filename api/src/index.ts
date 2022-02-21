@@ -7,6 +7,7 @@ import logger from 'morgan';
 import { createClient } from 'redis';
 import authRouter from './routes/authRouter';
 import cartRouter from './routes/cartRouter';
+import orderRouter from './routes/orderRouter';
 import restaurantRouter from './routes/restaurantRouter';
 import usersRouter from './routes/usersRouter';
 
@@ -26,7 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors({
     origin: 'http://localhost:3000',
-    methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD'],
+    methods: ['POST', 'DELETE', 'PUT', 'GET', 'OPTIONS', 'HEAD'],
     credentials: true
 }));
 
@@ -61,6 +62,7 @@ app.use('/auth', authRouter);
 app.use('/restaurants', restaurantRouter);
 app.use('/users', usersRouter);
 app.use('/cart', cartRouter);
+app.use('/orders', orderRouter);
 
 app.use((req: Request, res: Response, next) => {
     if (req.url.indexOf('/auth') === -1) {

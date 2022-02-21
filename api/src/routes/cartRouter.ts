@@ -31,7 +31,7 @@ class CartRouter {
         const { id } = req.params;
         const user = getSessionUser(req);
         await this.orderItemService.deleteById(+id);
-        const updatedItems = await this.orderItemService.findAllByUser(user.id)
+        const updatedItems = await this.orderItemService.findAllByUser(user.id, true);
         res.status(200).json(updatedItems);
     }
 

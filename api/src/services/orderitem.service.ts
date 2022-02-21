@@ -37,6 +37,16 @@ class OrderItemService {
         return this.prisma.orderItem.findMany(query);
     }
 
+    findUserProcessingCart(userId: number) {
+        const query = { where: { userId, state: 'IN_PROGRESS' } } as any;
+        return this.prisma.orderItem.findMany(query);
+    }
+
+    updateUserProcessingCart(userId: number, orderId: number) {
+        const query = { where: { userId, state: 'IN_PROGRESS' }, data: { orderId } } as any;
+        return this.prisma.orderItem.updateMany(query);
+    }
+
     deleteById(id: number) {
         return this.prisma.orderItem.delete({ where: { id } });
     }

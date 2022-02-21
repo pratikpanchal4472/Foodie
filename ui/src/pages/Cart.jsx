@@ -1,12 +1,12 @@
-import { Accordion, AccordionDetails, AccordionSummary, Avatar, Breadcrumbs, Card, CardActions, CardContent, Divider, Grid, IconButton, InputBase, Link, List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText, makeStyles, Paper, Typography } from "@material-ui/core";
-import AddCircleIcon from '@material-ui/icons/AddCircle';
+import { Accordion, AccordionDetails, AccordionSummary, Breadcrumbs, Card, CardActions, CardContent, Divider, Grid, Link, List, ListItem, ListItemSecondaryAction, ListItemText, makeStyles, Paper, Typography } from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import AppLayout from "../components/AppLayout";
 import Controls from "../components/controls/Controls";
-import { updateOrderItem, userCartItemDetails } from "../services/cartService";
+import OrderItems from "../components/OrderItems";
+import { removeCartItem, updateOrderItem, userCartItemDetails } from "../services/cartService";
+import { createOrder } from "../services/orderService";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,6 +54,12 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '25px',
     marginRight: '20px'
   },
+  quantiyPaperDisabled: {
+    width: '60px',
+    display: 'flex',
+    borderRadius: '25px',
+    marginRight: '20px'
+  },
   plusIcon: {
     marginLeft: '5px',
     padding: '0px'
@@ -78,6 +84,11 @@ const Cart = () => {
   const [items, setItems] = useState([]);
   const [itemExpansionStatus, setItemExpansionStatus] = useState([]);
   const [grossTotal, setGrossTotal] = useState(0);
+  const [gst, setGst] = useState(0);
+  const [deliveryCharge, setDeliveryCharge] = useState(30);
+  const [grandTotal, setGrandTotal] = useState(0);
+  const [orderCreated, setOrderCreated] = useState(false);
+  const [orderId, setOrderId] = useState(false);
 
   useLayoutEffect(() => {
     userCartItemDetails().then((data) => {
@@ -88,6 +99,11 @@ const Cart = () => {
   }, []);
 
   const buildItems = (data) => {
+    if (data.length > 0) {
+      setOrderCreated(data[0].orderId !== null);
+      setOrderId(data[0].orderId);
+    }
+
     const groupItemsByRestaurant = data.reduce((group, item) => {
       const { name, image, restaurant, unitPrice } = item.menuItem;
       const quantity = item.quantity;
@@ -126,13 +142,17 @@ const Cart = () => {
     });
   }
 
-  useEffect(() => updateGrossTotal(), [items]);
+  useEffect(() => updateTotal(), [items]);
 
-  const updateGrossTotal = () => {
-    setGrossTotal(items.map(item => item.orderItems).flat().reduce((sum, item) => {
+  const updateTotal = () => {
+    const gross = items.map(item => item.orderItems).flat().reduce((sum, item) => {
       sum += item.quantity * item.unitPrice;
       return sum;
-    }, 0));
+    }, 0);
+    const goodsAndServiceTax = Number(Number(gross * 0.05).toFixed(2));
+    setGrossTotal(Number(Number(gross).toFixed(2)));
+    setGst(goodsAndServiceTax);
+    setGrandTotal(Number(Number(gross + goodsAndServiceTax + deliveryCharge).toFixed(2)));
   }
 
   const updateQuantity = (item, action) => (event) => {
@@ -143,11 +163,19 @@ const Cart = () => {
       quantity++;
     }
 
-    updateOrderItem(item.id, { quantity }).then((data) => {
-      const displayItems = buildItems(data);
-      setItemExpansionStatus(displayItems.map(item => true));
-      setItems(displayItems);
-    })
+    if (quantity === 0) {
+      removeCartItem(item.id).then((data) => {
+        const displayItems = buildItems(data);
+        setItemExpansionStatus(displayItems.map(item => true));
+        setItems(displayItems);
+      })
+    } else {
+      updateOrderItem(item.id, { quantity }).then((data) => {
+        const displayItems = buildItems(data);
+        setItemExpansionStatus(displayItems.map(item => true));
+        setItems(displayItems);
+      })
+    }
   };
 
   const onChangeDetailsExpansion = (id) => (event, isExpanded) => {
@@ -155,6 +183,22 @@ const Cart = () => {
     itemExpansionStatus[index] = !itemExpansionStatus[index];
     console.log(itemExpansionStatus);
     setItemExpansionStatus([...itemExpansionStatus]);
+  }
+
+  const onCheckout = () => {
+    createOrder().then((data) => {
+      console.log(data);
+    });
+  }
+
+  const confirmAndPay = () => {
+    createOrder().then((data) => {
+      console.log(data);
+    });
+  }
+
+  const cancelOrder = () => {
+
   }
 
   return (
@@ -187,41 +231,7 @@ const Cart = () => {
                   <Typography className={classes.secondaryHeading}>{item.restaurantLocation}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <List dense className={classes.details}>
-                    {item.orderItems.map((orderItem) => {
-                      const orderItemId = orderItem.id;
-                      return (
-                        <ListItem key={orderItemId} dense>
-                          <ListItemAvatar>
-                            <Avatar variant="rounded" alt={orderItem.itemName} src={orderItem.image} className={classes.largeAvatar} />
-                          </ListItemAvatar>
-                          <ListItemText id={orderItemId} className={classes.menuName}>
-                            <Typography variant="body1" color="textPrimary">
-                              {orderItem.itemName}
-                            </Typography>
-                            <Typography variant="body1">
-                              &#8377; {orderItem.unitPrice}
-                            </Typography>
-                          </ListItemText>
-                          <ListItemSecondaryAction className={classes.listItemSecondaryAction}>
-                            <Paper className={classes.quantityPaper} variant="outlined">
-                              <IconButton className={classes.minusIcon} onClick={updateQuantity(orderItem, 'descrease')}>
-                                <RemoveCircleIcon fontSize="large" />
-                              </IconButton>
-                              <InputBase value={orderItem.quantity} disabled className={classes.quantity} />
-                              <IconButton className={classes.plusIcon} onClick={updateQuantity(orderItem, 'increase')}>
-                                <AddCircleIcon fontSize="large" />
-                              </IconButton>
-                            </Paper>
-
-                            <Typography variant="h6" color="textPrimary" component="h6">
-                              &#8377; {orderItem.quantity * orderItem.unitPrice}
-                            </Typography>
-                          </ListItemSecondaryAction>
-                        </ListItem>
-                      )
-                    })}
-                  </List>
+                  <OrderItems orderItems={item.orderItems} orderCreated={orderCreated} updateQuantity={updateQuantity}></OrderItems>
                 </AccordionDetails>
               </Accordion>)
 
@@ -257,7 +267,20 @@ const Cart = () => {
                     </ListItemText>
                     <ListItemSecondaryAction>
                       <Typography className={classes.title} color="textSecondary" variant="h6" component="h6">
-                        &#8377; {grossTotal * 0.05}
+                        &#8377; {gst}
+                      </Typography>
+                    </ListItemSecondaryAction>
+                  </ListItem>
+                  <Divider />
+                  <ListItem>
+                    <ListItemText>
+                      <Typography className={classes.title} color="textSecondary" variant="h6" component="h6">
+                        Delivery Charge:
+                      </Typography>
+                    </ListItemText>
+                    <ListItemSecondaryAction>
+                      <Typography className={classes.title} color="textSecondary" variant="h6" component="h6">
+                        &#8377; {deliveryCharge}
                       </Typography>
                     </ListItemSecondaryAction>
                   </ListItem>
@@ -270,17 +293,38 @@ const Cart = () => {
                     </ListItemText>
                     <ListItemSecondaryAction>
                       <Typography className={classes.title} color="textSecondary" variant="h6" component="h6">
-                        &#8377; {(grossTotal) + (grossTotal * 0.05)}
+                        &#8377; {grandTotal}
                       </Typography>
                     </ListItemSecondaryAction>
                   </ListItem>
                 </List>
               </CardContent>
               <CardActions>
-                <Controls.Button
-                  fullwidth
-                  text="Checkout"
-                />
+                {orderCreated
+                  ? (
+                    <Grid
+                      container
+                      direction="row"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      <Controls.Button
+                        text="Confirm and Pay"
+                        onClick={confirmAndPay}
+                      />
+                      <Controls.Button
+                        color="secondary"
+                        text="Cancel Order"
+                        onClick={cancelOrder}
+                      />
+                    </Grid>
+                  )
+                  : (
+                    <Controls.Button
+                      fullwidth
+                      text="Checkout"
+                      onClick={onCheckout}
+                    />)}
               </CardActions>
             </Card>
           </Paper>

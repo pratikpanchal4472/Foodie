@@ -5,8 +5,8 @@ const apiRoute = `${process.env.REACT_APP_API_SERVER}/cart`;
 
 export async function addOrUpdateItem(payload) {
     try {
-        await axios.post(`${apiRoute}/addorupdate`, payload);
-        return Promise.resolve();
+        const { data } = await axios.post(`${apiRoute}/addorupdate`, payload);
+        return Promise.resolve(data);
     } catch (e) {
         return Promise.reject();
     }
